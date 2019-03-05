@@ -1,0 +1,40 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col">
+        <div class="card">
+          <div class="card-header bg-dark text-white">
+            <h4 style=" float:left;">Welcome</h4>
+            <button type="button" (click)="logout()" style="float: right;">Log Out</button>
+          </div>
+          <div class="card-body">
+            <h4><b>Email:</b> {{email}}</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header bg-dark">
+            <h4 class="card-title text-white">User List</h4>
+          </div>
+          <div class="card-body">
+            <mat-table [(dataSource)]="userList">
+              <ng-container matColumnDef="name">
+                <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+                <mat-cell *matCellDef="let user"> {{user.name}} </mat-cell>
+              </ng-container>
+              <ng-container matColumnDef="email">
+                <mat-header-cell *matHeaderCellDef>email </mat-header-cell>
+                <mat-cell *matCellDef="let user"> {{user.name}} </mat-cell>
+              </ng-container>
+              <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+              <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+            </mat-table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
